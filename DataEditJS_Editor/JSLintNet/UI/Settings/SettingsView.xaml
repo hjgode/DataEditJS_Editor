@@ -1,0 +1,63 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:JSLintNet.UI.Settings"
+        x:Class="JSLintNet.UI.Settings.SettingsView"
+        Name="RootWindow"
+        Title="JSLint.NET Settings" Height="420" Width="800" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <Grid>
+        <TabControl Margin="10,10,10,0" Height="335" VerticalAlignment="Top">
+            <TabItem Header="Settings">
+                <Grid>
+                    <GroupBox Header="Output warnings as..." HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="100" Width="240">
+                        <Canvas>
+                            <RadioButton Content="Errors" Canvas.Left="10" Canvas.Top="10" GroupName="Output" IsChecked="{Binding OutputError}" />
+                            <RadioButton Content="Warnings" Canvas.Left="10" Canvas.Top="31" GroupName="Output" IsChecked="{Binding OutputWarning}" />
+                            <RadioButton Content="Messages" Canvas.Left="10" Canvas.Top="52" GroupName="Output" IsChecked="{Binding OutputMessage}" />
+                        </Canvas>
+                    </GroupBox>
+                    <GroupBox Header="Visual Studio..." HorizontalAlignment="Center" Margin="0,10,0,0" Width="240" Height="100" VerticalAlignment="Top">
+                        <Canvas>
+                            <CheckBox Content="Run on save" Canvas.Left="10" Canvas.Top="10" IsChecked="{Binding RunOnSave}" />
+                            <CheckBox Content="Run on build" Canvas.Left="10" Canvas.Top="31" IsChecked="{Binding RunOnBuild}" Name="RunOnBuild" />
+                            <CheckBox Content="Cancel build" Canvas.Left="30" Canvas.Top="52" IsChecked="{Binding CancelBuild}" IsEnabled="{Binding ElementName=RunOnBuild, Path=IsChecked}" />
+                        </Canvas>
+                    </GroupBox>
+                    <GroupBox Header="Ignore" Margin="10,0,10,10" Height="178" VerticalAlignment="Bottom">
+                        <Canvas>
+                            <ListBox Height="108" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="10" Canvas.Right="10" Width="712" ItemsSource="{Binding Ignore}" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalContentAlignment="Stretch">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <TextBlock Text="{Binding Value}" />
+                                            <Button Width="16" Height="16" Content="x" Command="{Binding ElementName=RootWindow, Path=DataContext.IgnoreDeleteCommand}" CommandParameter="{Binding Index}" Padding="0,-4,0,0" Margin="1,1,1,1" HorizontalAlignment="Right" />
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <TextBox Height="23" Canvas.Left="10" Canvas.Bottom="10" Width="632" Name="IgnoreAdd" Canvas.Top="123">
+                                <TextBox.InputBindings>
+                                    <KeyBinding Command="{Binding IgnoreAddCommand}" CommandParameter="{Binding ElementName=IgnoreAdd}" Key="Enter" />
+                                </TextBox.InputBindings>
+                            </TextBox>
+                            <Button Content="Add" Canvas.Right="10" Canvas.Bottom="10" Width="75" Command="{Binding IgnoreAddCommand}" CommandParameter="{Binding ElementName=IgnoreAdd}" RenderTransformOrigin="1.3,2.75" Canvas.Left="647" Canvas.Top="124" />
+                        </Canvas>
+                    </GroupBox>
+                    <GroupBox Header="Limits..." HorizontalAlignment="Right" Margin="0,10,10,0" Width="240" Height="100" VerticalAlignment="Top">
+                        <Canvas>
+                            <TextBox Height="16" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Width="50" Padding="0" FontSize="9" Text="{Binding ErrorLimit}" />
+                            <Label Content="Maximum total errors" Canvas.Left="65" Canvas.Top="10" Height="16" Padding="0" />
+                            <TextBox Height="16" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="31" Width="50" Padding="0" FontSize="9" Text="{Binding FileLimit}" />
+                            <Label Content="Maximum files processed" Canvas.Left="65" Canvas.Top="31" Height="16" Padding="0" />
+                        </Canvas>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="JSLint Options">
+                <local:OptionsControl />
+            </TabItem>
+        </TabControl>
+        <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,90,10" VerticalAlignment="Bottom" Width="75" Command="{Binding SettingsSavedCommand}" />
+        <Button Content="Cancel" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Command="{Binding SettingsCanceledCommand}" />
+    </Grid>
+</Window>

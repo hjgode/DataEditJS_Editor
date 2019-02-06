@@ -1,0 +1,1223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JSLintNet</name>
+    </assembly>
+    <members>
+        <member name="T:JSLintNet.IJSLintToken">
+            <summary>
+            Contains the details of a JSLint token.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.Id">
+            <summary>
+            Gets the identity.
+            </summary>
+            <value>
+            The identity.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.Identifier">
+            <summary>
+            Gets a value indicating whether this <see cref="T:JSLintNet.IJSLintToken"/> is an identifier.
+            </summary>
+            <value>
+              <c>true</c> if this <see cref="T:JSLintNet.IJSLintToken"/> is an identifier; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.From">
+            <summary>
+            Gets the start column index.
+            </summary>
+            <value>
+            The start column index.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.Thru">
+            <summary>
+            Gets the end column index.
+            </summary>
+            <value>
+            The end column index.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.Line">
+            <summary>
+            Gets the line index.
+            </summary>
+            <value>
+            The line index.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.Value">
+            <summary>
+            Gets the token value.
+            </summary>
+            <value>
+            The token value.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintToken.Directive">
+            <summary>
+            Gets the directive type.
+            </summary>
+            <value>
+            The directive type.
+            </value>
+        </member>
+        <member name="T:JSLintNet.Json.IJsonProvider">
+            <summary>
+            Provides JSON related services.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.Json.IJsonProvider.DeserializeObject``1(System.String)">
+            <summary>
+            Deserializes the object.
+            </summary>
+            <typeparam name="T">The type to deserialize to.</typeparam>
+            <param name="value">The value to deserialize.</param>
+            <returns>
+            The deserialized object from the JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.IJsonProvider.DeserializeData(System.String)">
+            <summary>
+            Deserializes the data.
+            </summary>
+            <param name="value">The value to deserialize.</param>
+            <returns>
+            The deserialized <see cref="T:JSLintNet.IJSLintData"/> from the JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.IJsonProvider.DeserializeSettings(System.String)">
+            <summary>
+            Deserializes the settings.
+            </summary>
+            <param name="value">The value to deserialize.</param>
+            <returns>
+            The deserialized <see cref="T:JSLintNet.Settings.JSLintNetSettings"/> from the JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.IJsonProvider.SerializeObject``1(``0)">
+            <summary>
+            Serializes the object.
+            </summary>
+            <typeparam name="T">The type of the value.</typeparam>
+            <param name="value">The value.</param>
+            <returns>
+            A serialized JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.IJsonProvider.SerializeOptions(JSLintNet.JSLintOptions)">
+            <summary>
+            Serializes the options.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            A serialized JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.IJsonProvider.SerializeSettings(JSLintNet.Settings.JSLintNetSettings)">
+            <summary>
+            Serializes the settings.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            A serialized JSON string.
+            </returns>
+        </member>
+        <member name="T:JSLintNet.Json.JsonProvider">
+            <summary>
+            Provides JSON related services.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Json.JsonProvider.SerializerSettings">
+            <summary>
+            The serializer settings.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.DeserializeObject``1(System.String)">
+            <summary>
+            Deserializes the object.
+            </summary>
+            <typeparam name="T">The type to deserialize to.</typeparam>
+            <param name="value">The value to deserialize.</param>
+            <returns>
+            The deserialized object from the JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.DeserializeData(System.String)">
+            <summary>
+            Deserializes the data.
+            </summary>
+            <param name="value">The serialized value.</param>
+            <returns>
+            A new <see cref="T:JSLintNet.IJSLintData" /> instance.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.DeserializeSettings(System.String)">
+            <summary>
+            Deserializes the settings.
+            </summary>
+            <param name="value">The serialized value.</param>
+            <returns>
+            A new <see cref="T:JSLintNet.Settings.JSLintNetSettings" /> instance.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.SerializeObject``1(``0)">
+            <summary>
+            Serializes the object.
+            </summary>
+            <typeparam name="T">The type of the value.</typeparam>
+            <param name="value">The value.</param>
+            <returns>
+            A serialized JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.SerializeOptions(JSLintNet.JSLintOptions)">
+            <summary>
+            Serializes the options.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            A serialized JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.SerializeSettings(JSLintNet.Settings.JSLintNetSettings)">
+            <summary>
+            Serializes the settings.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            A serialized JSON string.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Json.JsonProvider.OnError(System.Object,Newtonsoft.Json.Serialization.ErrorEventArgs)">
+            <summary>
+            Called when a JSON error occurs.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:Newtonsoft.Json.Serialization.ErrorEventArgs"/> instance containing the event data.</param>
+            <remarks>Prevents exceptions bubbling up to the consumer.</remarks>
+        </member>
+        <member name="T:JSLintNet.Settings.Output">
+            <summary>
+            The type of output for JSLint errors
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.Output.Error">
+            <summary>
+            Output JSLint errors as errors.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.Output.Warning">
+            <summary>
+            Output JSLint errors as warnings.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.Output.Message">
+            <summary>
+            Output JSLint errors as messages.
+            </summary>
+        </member>
+        <member name="T:JSLintNet.Settings.JSLintNetSettings">
+            <summary>
+            Represents the settings available to the JSLint.NET suite.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.JSLintNetSettings.FileName">
+            <summary>
+            The standard file name for JSLint.NET settings.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.JSLintNetSettings.DefaultErrorLimit">
+            <summary>
+            The default error limit.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.JSLintNetSettings.DefaultFileLimit">
+            <summary>
+            The default file limit.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.Settings.JSLintNetSettings.ExceptionLimit">
+            <summary>
+            The hard exception limit.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.Settings.JSLintNetSettings"/> class.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.Files">
+            <summary>
+            Gets the list of all files used to create this instance.
+            </summary>
+            <value>
+            The list of all files used to create this instance.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.Version">
+            <summary>
+            Gets or sets the version of JSLint.NET used to save this file.
+            </summary>
+            <value>
+            The version.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.Output">
+            <summary>
+            Gets or sets the output type.
+            </summary>
+            <value>
+            The output type.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.Ignore">
+            <summary>
+            Gets the list of paths to ignore.
+            </summary>
+            <value>
+            The list of paths to ignore.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.Options">
+            <summary>
+            Gets or sets the JSLint options.
+            </summary>
+            <value>
+            The JSLint options.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.GlobalVariables">
+            <summary>
+            Gets the global variables to use with JSLint.
+            </summary>
+            <value>
+            The global variables.
+            </value>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.IsSettingsFile(System.String)">
+            <summary>
+            Determines whether the specified file name matches the JSLint.NET settings file.
+            </summary>
+            <param name="fileName">The file name.</param>
+            <returns>
+              <c>true</c> if the file name matches the JSLint.NET settings file; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.NormalizeIgnore">
+            <summary>
+            Normalizes the ignore list to a new clone.
+            </summary>
+            <returns>A normalized clone of the ignore list.</returns>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.ErrorLimitOrDefault">
+            <summary>
+            Gets the error limit for this instance or the default if one was not defined.
+            </summary>
+            <returns>
+            The error limit for this instance or the default if one was not defined.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.FileLimitOrDefault">
+            <summary>
+            Gets the file limit for this instance or the default if one was not defined.
+            </summary>
+            <returns>
+            The file limit for this instance or the default if one was not defined.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.TypedClone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.Settings.JSLintNetSettings.Merge(JSLintNet.Settings.JSLintNetSettings)">
+            <summary>
+            Merges the specified settings into this instance.
+            </summary>
+            <param name="merge">The settings to merge.</param>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.RunOnSave">
+            <summary>
+            Gets or sets a value indicating whether JSLint should run on save.
+            </summary>
+            <value>
+            <c>true</c> if JSLint should run on save; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.RunOnBuild">
+            <summary>
+            Gets or sets a value indicating whether JSLint should run on build.
+            </summary>
+            <value>
+            <c>true</c> if JSLint should run on build; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.CancelBuild">
+            <summary>
+            Gets or sets a value indicating whether the build should be canceled for JSLint errors.
+            </summary>
+            <value>
+            <c>true</c> if the build should be canceled for JSLint errors; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.ErrorLimit">
+            <summary>
+            Gets or sets the the total error limit.
+            </summary>
+            <value>
+            The the total error limit.
+            </value>
+        </member>
+        <member name="P:JSLintNet.Settings.JSLintNetSettings.FileLimit">
+            <summary>
+            Gets or sets the the total file limit.
+            </summary>
+            <value>
+            The the total file limit.
+            </value>
+        </member>
+        <member name="T:JSLintNet.IJSLintContext">
+            <summary>
+            Provides a context for running JSLint.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.IJSLintContext.Lint(System.String)">
+            <summary>
+            Validates the specified source using JSLint.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> instance containing any validation warnings.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.IJSLintContext.Lint(System.String,JSLintNet.JSLintOptions)">
+            <summary>
+            Validates the specified source using JSLint with the provided options.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> instance containing any validation warnings.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.IJSLintContext.Lint(System.String,JSLintNet.JSLintOptions,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Validates the specified source using JSLint with the provided options and global variables.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="options">The options.</param>
+            <param name="globalVariables">The global variables.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> instance containing any validation warnings.
+            </returns>
+        </member>
+        <member name="T:JSLintNet.JSLint">
+            <summary>
+            Provides static JSLint validation.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLint.Lint(System.String)">
+            <summary>
+            Validates the specified source using JSLint.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> containing any validation errors.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLint.Lint(System.String,JSLintNet.JSLintOptions)">
+            <summary>
+            Validates the specified source using JSLint with the provided options.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> containing any validation errors.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLint.Lint(System.String,JSLintNet.JSLintOptions,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Validates the specified source using JSLint with the provided options and global variables.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="options">The options.</param>
+            <param name="globalVariables">The global variables.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> containing any validation errors.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLint.CanLint(System.String)">
+            <summary>
+            Determines whether this instance can lint the specified file name.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns>
+              <c>true</c> if this instance can lint the specified file name; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLint.IsJavaScript(System.String)">
+            <summary>
+            Determines whether the specified file name has a supported JavaScript extension.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns>
+              <c>true</c> if the specified file name has a supported JavaScript extension; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLint.IsJson(System.String)">
+            <summary>
+            Determines whether the specified file name has a supported JSON extension.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns>
+              <c>true</c> if the specified file name has a supported JSON extension; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:JSLintNet.JSLintTask">
+            <summary>
+            Task that will run JSLint over source files.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLintTask.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.JSLintTask"/> class with default services.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLintTask.#ctor(System.Func{JSLintNet.IJSLintContext},JSLintNet.Settings.ISettingsRepository,JSLintNet.Abstractions.IFileSystemWrapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.JSLintTask" /> class with custom services.
+            </summary>
+            <param name="jsLintFactory">The JSLint factory.</param>
+            <param name="settingsRepository">The settings repository.</param>
+            <param name="fileSystemWrapper">The file system wrapper.</param>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.SourceDirectory">
+            <summary>
+            Gets or sets the source directory to be processed by JSLint.
+            </summary>
+            <value>
+            The source directory.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.SourceFiles">
+            <summary>
+            Gets or sets the source files to be processed by JSLint.
+            </summary>
+            <value>
+            The source files.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.Configuration">
+            <summary>
+            Gets or sets the build configuration.
+            </summary>
+            <value>
+            The build configuration.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.SettingsFile">
+            <summary>
+            Gets or sets a custom path to a JSLint.NET settings file if it is not located in the root of the source directory.
+            </summary>
+            <value>
+            The settings file.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.ReportFile">
+            <summary>
+            Gets or sets the path to the HTML report file.
+            </summary>
+            <value>
+            The report file.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.ErrorCount">
+            <summary>
+            Gets the error count.
+            </summary>
+            <value>
+            The error count.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.ErrorFileCount">
+            <summary>
+            Gets the count of files with errors.
+            </summary>
+            <value>
+            The count of files with errors.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintTask.ProcessedFileCount">
+            <summary>
+            Gets the processed file count.
+            </summary>
+            <value>
+            The processed file count.
+            </value>
+        </member>
+        <member name="M:JSLintNet.JSLintTask.Execute">
+            <summary>
+            Executes the task.
+            </summary>
+            <returns>
+              <c>true</c> if the task successfully executed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:JSLintNet.IJSLintData">
+            <summary>
+            Contains a JSLint result.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Edition">
+            <summary>
+            Gets the edition of JSLint that did the analysis.
+            </summary>
+            <value>
+            The edition.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Directives">
+            <summary>
+            Gets the directives.
+            </summary>
+            <value>
+            The directives.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Imports">
+            <summary>
+            Gets the array of strings representing each of the imports.
+            </summary>
+            <value>
+            The imports.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Json">
+            <summary>
+            Gets a value indicating whether the file is a JSON text.
+            </summary>
+            <value>
+              <c>true</c> if the file is a JSON text; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Module">
+            <summary>
+            Gets a value indicating whether an import or export statement was used.
+            </summary>
+            <value>
+              <c>true</c> if an import or export statement was used; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.OK">
+            <summary>
+            Gets a value indicating whether no warnings were generated.
+            </summary>
+            <value>
+              <c>true</c> if no warnings were generated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Property">
+            <summary>
+            Gets the property object.
+            </summary>
+            <value>
+            The property object.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.PropertyDirective">
+            <summary>
+            Gets the property directive.
+            </summary>
+            <value>
+            The property directive.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Stop">
+            <summary>
+            Gets a value indicating whether JSLint was unable to finish.
+            </summary>
+            <value>
+              <c>true</c> if JSLint was unable to finish; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Warnings">
+            <summary>
+            Gets the array of warning objects.
+            </summary>
+            <value>
+            The warnings.
+            </value>
+        </member>
+        <member name="P:JSLintNet.IJSLintData.Report">
+            <summary>
+            Gets the HTML report.
+            </summary>
+            <value>
+            The HTML report.
+            </value>
+        </member>
+        <member name="T:JSLintNet.IJSLintWarning">
+            <summary>
+            Contains the details of a JSLint error.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.IJSLintWarning.Line">
+            <summary>
+            Gets the line (relative to 0) at which the lint was found.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.IJSLintWarning.Column">
+            <summary>
+            Gets the character (relative to 0) at which the lint was found.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.IJSLintWarning.Message">
+            <summary>
+            Gets the problem.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.IJSLintWarning.Code">
+            <summary>
+            Gets the error code.
+            </summary>
+            <value>
+            The error code.
+            </value>
+        </member>
+        <member name="T:JSLintNet.JSLintOptions">
+            <summary>
+            Provides a simple way to create and manage the options used by JSLint.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateBitwiseOperators">
+            <summary>
+            Gets or sets a value indicating whether bitwise operators should be allowed.
+            </summary>
+            <value>
+            <c>true</c> if bitwise operators should be allowed; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "bitwise" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.AssumeBrowser">
+            <summary>
+            Gets or sets a value indicating whether the standard browser globals should be predefined.
+            </summary>
+            <value>
+            <c>true</c> if the standard browser globals should be predefined; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "browser" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.AssumeCouchDB">
+            <summary>
+            Gets or sets a value indicating whether Couch DB globals should be predefined.
+            </summary>
+            <value>
+            <c>true</c> if Couch DB globals should be predefined; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "couch" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.AssumeInDevelopment">
+            <summary>
+            Gets or sets a value indicating whether browser globals that are useful in development should be predefined, and if debugger statements and TODO comments should be allowed.
+            </summary>
+            <value>
+            <c>true</c> if browser globals that are useful in development should be predefined, and if debugger statements and TODO comments should be allowed; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "devel" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.AssumeES6">
+            <summary>
+            Gets or sets a value indicating whether using the good parts of ECMAScript Sixth Edition.
+            </summary>
+            <value>
+            <c>true</c> if using the good parts of ECMAScript Sixth Edition; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "es6" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateEval">
+            <summary>
+            Gets or sets a value indicating whether eval should be allowed.
+            </summary>
+            <value>
+            <c>true</c> if eval should be allowed; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "eval" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateForStatement">
+            <summary>
+            Gets or sets a value indicating whether the for statement should be allowed.
+            </summary>
+            <value>
+            <c>true</c> if the for statement should be allowed; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "for" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.MaximumErrors">
+            <summary>
+            Gets or sets the maximum number of warnings reported.
+            </summary>
+            <value>
+            The maximum number of warnings reported.
+            </value>
+            <remarks>
+            JSLint "maxerr" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.MaximumLineLength">
+            <summary>
+            Gets or sets the maximum number of characters in a line.
+            </summary>
+            <value>
+            The maximum number of characters in a line.
+            </value>
+            <remarks>
+            JSLint "maxlen" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateMultipleVariables">
+            <summary>
+            Gets or sets a value indicating whether a var, let, or const statement can declare two or more variables in a single statement.
+            </summary>
+            <value>
+            <c>true</c> if a var, let, or const statement can declare two or more variables in a single statement; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "multivar" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.AssumeNode">
+            <summary>
+            Gets or sets a value indicating whether Node.js globals should be predefined.
+            </summary>
+            <value>
+            <c>true</c> if Node.js globals should be predefined; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "node" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateSingleQuoteStrings">
+            <summary>
+            Gets or sets a value indicating whether single quote should be allowed to enclose string literals.
+            </summary>
+            <value>
+            <c>true</c> if single quote should be allowed to enclose string literals; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "single" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateThis">
+            <summary>
+            Gets or sets a value indicating whether this should be allowed.
+            </summary>
+            <value>
+            <c>true</c> if this should be allowed; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "this" option.
+            </remarks>
+        </member>
+        <member name="P:JSLintNet.JSLintOptions.TolerateMessyWhitespace">
+            <summary>
+            Gets or sets a value indicating whether strict whitespace rules should be ignored.
+            </summary>
+            <value>
+            <c>true</c> if strict whitespace rules should be ignored; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            JSLint "white" option.
+            </remarks>
+        </member>
+        <member name="M:JSLintNet.JSLintOptions.TypedClone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLintOptions.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>
+            A new object that is a copy of this instance.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLintOptions.Merge(JSLintNet.JSLintOptions)">
+            <summary>
+            Merges the specified options into this instance.
+            </summary>
+            <param name="merge">The options to merge.</param>
+        </member>
+        <member name="T:JSLintNet.JSLintContext">
+            <summary>
+            Provides a context for running JSLint.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.JSLintContext"/> class.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.#ctor(System.Func{JSLintNet.IJavaScriptContext},JSLintNet.Json.IJsonProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.JSLintContext" /> class.
+            </summary>
+            <param name="javaScriptContextFactory">The JavaScript context factory.</param>
+            <param name="jsonProvider">The JSON provider.</param>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.Lint(System.String)">
+            <summary>
+            Validates the specified source using JSLint.
+            </summary>
+            <param name="source">The source.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> containing any validation errors.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.Lint(System.String,JSLintNet.JSLintOptions)">
+            <summary>
+            Validates the specified source using JSLint with the provided options.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="options">The options.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> containing any validation errors.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.Lint(System.String,JSLintNet.JSLintOptions,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Validates the specified source using JSLint with the provided options and global variables.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="options">The options.</param>
+            <param name="globalVariables">The global variables.</param>
+            <returns>
+            A <see cref="T:JSLintNet.IJSLintData" /> instance containing any validation warnings.
+            </returns>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLintContext.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:JSLintNet.AssemblyInfo">
+            <summary>
+            Version number and copyright constants for sharing between projects.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.Version">
+            <summary>
+            The core version number for JSLint.NET.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.InformationalVersion">
+            <summary>
+            The informational version for JSLint.NET.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.Copyright">
+            <summary>
+            The copyright line for JSLint.NET.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.Company">
+            <summary>
+            The company name for JSLint.NET.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.Product">
+            <summary>
+            The product name for JSLint.NET.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.Edition">
+            <summary>
+            The edition of JSLint bundled with this release.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.PublicKey">
+            <summary>
+            The public key for JSLint.NET.
+            </summary>
+        </member>
+        <member name="F:JSLintNet.AssemblyInfo.DynamicPublicKey">
+            <summary>
+            The dynamic public key.
+            </summary>
+        </member>
+        <member name="T:JSLintNet.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ErrorEncounteredFormat">
+            <summary>
+              Looks up a localized string similar to Error linting file: {0}{1}{2}.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ErrorLimitReachedFormat">
+            <summary>
+              Looks up a localized string similar to Total JSLint error limit reached: {0}.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ErrorTextPrefix">
+            <summary>
+              Looks up a localized string similar to JSLint : .
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ExceptionLimitReachedFormat">
+            <summary>
+              Looks up a localized string similar to Unhandled JSLint.NET exception limit reached: {0}.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.FileLimitReachedFormat">
+            <summary>
+              Looks up a localized string similar to Maximum file limit reached: {0}.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.jslint">
+            <summary>
+              Looks up a localized string similar to // jslint.js
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.jslintnet">
+            <summary>
+              Looks up a localized string similar to // jslintnet.js
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ProcessingExceptionFormat">
+            <summary>
+              Looks up a localized string similar to An unexpected exception occurred processing file &quot;{0}&quot;: {1}.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.report">
+            <summary>
+              Looks up a localized string similar to // report.js
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ReportDocumentFormat">
+             <summary>
+               Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+            &lt;title&gt;{1} {2}&lt;/title&gt;
+            &lt;style&gt;
+            {0}
+            &lt;/style&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;{1} {2}&lt;/h1&gt;
+                &lt;dl&gt;
+                    &lt;dt&gt;Source Directory:&lt;/dt&gt;
+                    &lt;dd&gt;{3}&lt;/dd&gt;
+                    &lt;dt&gt;Settings File:&lt;/dt&gt;
+                    &lt;dd&gt;{4}&lt;/dd&gt;
+                    &lt;dt&gt;Processed Files:&lt;/dt&gt;
+                    &lt;dd&gt;{5}&lt;/dd&gt;
+                    &lt;dt&gt;Files with Warnings:&lt;/dt&gt;
+                    &lt;dd&gt;{6}&lt;/dd&gt;
+                    &lt;dt&gt;Total Warnings:&lt;/dt&gt;
+                    &lt;dd&gt;{7}&lt;/dd&gt;
+                &lt;/dl&gt;
+            {8}
+            &lt;/body&gt;
+            &lt;/html&gt;
+            .
+             </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ReportDocumentStyle">
+             <summary>
+               Looks up a localized string similar to body {
+                font-family: Tahoma, Verdana, sans-serif;
+                font-size: 75%;
+            }
+            
+            h2 {
+                background-color: #cd5c5c;
+                color: #ffffff;
+                padding: 4px 8px;
+            }
+            
+            cite {
+                background-color: #eeeeee;
+                display: block;
+                padding: 4px 8px;
+                font-style: normal;
+            }
+            
+            address {
+                float: right;
+                color: #999999;
+            }
+            .
+             </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ReportFileFormat">
+             <summary>
+               Looks up a localized string similar to     &lt;h2&gt;{0} ({1} errors)&lt;/h2&gt;
+                {2}
+            .
+             </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ReportNoSettingsFiles">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.Properties.Resources.ReportTitle">
+            <summary>
+              Looks up a localized string similar to JSLint Report.
+            </summary>
+        </member>
+        <member name="T:JSLintNet.JSLintReportBuilder">
+            <summary>
+            Records JSLint errors and builds a report in HTML format.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.JSLintReportBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.JSLintReportBuilder"/> class.
+            </summary>
+        </member>
+        <member name="P:JSLintNet.JSLintReportBuilder.SourceDirectory">
+            <summary>
+            Gets or sets the source directory.
+            </summary>
+            <value>
+            The source directory.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintReportBuilder.SettingsFiles">
+            <summary>
+            Gets the settings files.
+            </summary>
+            <value>
+            The settings files.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintReportBuilder.ProcessedFileCount">
+            <summary>
+            Gets the processed file count.
+            </summary>
+            <value>
+            The processed file count.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintReportBuilder.ErrorFileCount">
+            <summary>
+            Gets the count of files with errors.
+            </summary>
+            <value>
+            The count of files with errors.
+            </value>
+        </member>
+        <member name="P:JSLintNet.JSLintReportBuilder.ErrorCount">
+            <summary>
+            Gets the error count.
+            </summary>
+            <value>
+            The error count.
+            </value>
+        </member>
+        <member name="M:JSLintNet.JSLintReportBuilder.AddFile(System.String,JSLintNet.IJSLintData)">
+            <summary>
+            Adds the file.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="data">The JSLint data.</param>
+        </member>
+        <member name="M:JSLintNet.JSLintReportBuilder.AddSettings(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Adds the settings files.
+            </summary>
+            <param name="settingsFiles">The settings files.</param>
+        </member>
+        <member name="M:JSLintNet.JSLintReportBuilder.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:JSLintNet.UI.Settings.OptionsControl">
+            <summary>
+            OptionsControl
+            </summary>
+        </member>
+        <member name="M:JSLintNet.UI.Settings.OptionsControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.UI.Settings.OptionsControl"/> class.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.UI.Settings.OptionsControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:JSLintNet.UI.Settings.SettingsView">
+            <summary>
+            SettingsView
+            </summary>
+        </member>
+        <member name="M:JSLintNet.UI.Settings.SettingsView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JSLintNet.UI.Settings.SettingsView"/> class.
+            </summary>
+        </member>
+        <member name="M:JSLintNet.UI.Settings.SettingsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
