@@ -116,6 +116,7 @@ namespace DataEditJS_Editor
             dlg.FilterIndex = 0;
             dlg.ValidateNames = true;
             dlg.DefaultExt = "js";
+            dlg.OverwritePrompt = false;
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 string s = jstext.Text;
@@ -148,6 +149,28 @@ namespace DataEditJS_Editor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.InitialDirectory = util.getAppPath();
+            dlg.RestoreDirectory = true;
+            dlg.Filter = "JS file|*.js|All files|*.*";
+            dlg.FilterIndex = 0;
+            dlg.ValidateNames = true;
+            dlg.DefaultExt = "js";
+            dlg.OverwritePrompt = true;
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string s = jstext.Text;
+                using (TextWriter tw = new StreamWriter(dlg.FileName))
+                {
+                    tw.Write(s);
+                    tw.Flush();
+                }
+            }
 
         }
     }
