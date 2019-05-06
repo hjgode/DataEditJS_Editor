@@ -93,8 +93,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SharpAdbClient\SharpAdbClient\SharpAdbClient.csproj">
-      <Project>{5ae55361-d6f9-432c-9783-2f8a0525959b}</Project>
+    <ProjectReference Include="..\..\sharpadb\SharpAdbClient\SharpAdbClient.csproj">
+      <Project>{c39225a0-1260-49b0-b7c6-4f682499b160}</Project>
       <Name>SharpAdbClient</Name>
     </ProjectReference>
   </ItemGroup>

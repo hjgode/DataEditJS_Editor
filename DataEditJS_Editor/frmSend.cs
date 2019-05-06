@@ -24,8 +24,16 @@ namespace DataEditJS_Editor
             InitializeComponent();
             _filename = filename;
             server = new SharpAdbClient.AdbServer();
-            var result = server.StartServer(@"C:\android-sdk\platform-tools\adb.exe", restartServerIfNewer: false);
-
+            var adbPath = @"C:\android - sdk\platform - tools\adb.exe";
+            StartServerResult result;
+            if (!System.IO.File.Exists(adbPath))
+                adbPath = @"C:\ProgramData\Microsoft\AndroidSDK\25\platform-tools\adb.exe";
+            if (!System.IO.File.Exists(adbPath))
+            {
+                MessageBox.Show("Unable to find adb.exe", "Error");
+                return;
+            }
+            result = server.StartServer(adbPath, restartServerIfNewer: false);
             client = new SharpAdbClient.AdbClient();
             List<SharpAdbClient.DeviceData> devices = client.GetDevices();
             foreach (SharpAdbClient.DeviceData device in devices)
@@ -37,7 +45,7 @@ namespace DataEditJS_Editor
         private void btnSend_Click(object sender, EventArgs e)
         {
             SharpAdbClient.DeviceData device = (SharpAdbClient.DeviceData) cboListDevices.SelectedItem;
-            UploadFile(device, _filename, "/storage/emulated/0/Documents/dataedit.js");
+            UploadFile(device, _filename, " / storage/emulated/0/Documents/dataEdit.js");
         }
 
         void DownloadFile(SharpAdbClient.DeviceData device, string fileLocal, string fileRemote)

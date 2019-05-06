@@ -45,7 +45,7 @@ namespace DataEditJS_Editor
         public static string decodeWithHex(string sIn)
         {
             string s = sIn;
-            Regex regex = new Regex(@"\\x[0-9]{2}");
+            Regex regex = new Regex(@"\\x[0-9A-z]{2}");
             var matches = regex.Matches(s);
             foreach (Match match in matches)
             {
