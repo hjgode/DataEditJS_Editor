@@ -13,14 +13,20 @@ namespace DataEditJS_Editor
 {
     public partial class Form1 : Form
     {
-        string testJS = "    function stripFromEnd(inp,num){\r\n" +
+        string testJS = 
+                "    //example for function use\r\n" +
+                "    function stripFromEnd(inp,num){\r\n" +
                 "        out=inp.substr(0,inp.length-num);\r\n" +
                 "        return out;\r\n" +
                 "    }\r\n" +
                 "    \r\n" +
                 "    function dataEdit(inStr,inCodeID){\r\n" +
                 "        var outStr=\"\";\r\n" +
+                "        //call our function that strips some char from end \r\n"+
                 "        outStr=stripFromEnd(inStr,2);\r\n" +
+                "        //a simple replace using hex value\r\n" +        
+                "        outStr=outStr.replace('\x1d', '<GS>');" +
+                "        //find the position of something \r\n" +
                 "        var pos = outStr.indexOf('456');\r\n" +
                 "        inStr=outStr;\r\n" +
                 "        if(pos == -1){\r\n" +
@@ -29,14 +35,38 @@ namespace DataEditJS_Editor
                 "            //cut this pattern\r\n" +
                 "            outStr=inStr.substr(0,pos) + inStr.substr(pos+3);\r\n" +
                 "        }\r\n" +
+                "        //append a hex defined value\r\n" +
+                "        outStr=outStr + '\x1d'\r\n"+
                 "        return outStr;\r\n" +
                 "    }\r\n";
+        bool _textChanged = false;
+        bool btextChanged {
+            get { return _textChanged; }
+            set { _textChanged = value;
+                if (_textChanged)
+                    statusSaved.Text = "not saved";
+                else
+                    statusSaved.Text = "saved";
+            }
+        }
+        string _savedFileName = "";
+        String savedFileName
+        {
+            get { return _savedFileName; }
+            set { _savedFileName = value;
+                if(_savedFileName.Length>0)
+                    statusFileName.Text = _savedFileName;
+                else
+                    statusFileName.Text = "no file";
+            }
+        }
 
         public Form1()
         {
             InitializeComponent();
             string a = util.getAppPath();
             jstext.Text = testJS;
+            jstext.SelectionStart = 0;
             selectedCodeID.Items.AddRange(codeids.codeID);
             selectedCodeID.SelectedIndex = 0;
             List<snippet> snipps = snippets.SampleSnippes;
@@ -48,6 +78,7 @@ namespace DataEditJS_Editor
             }
             ToolStripMenuItem[] menuItems = items.ToArray();
             mnuSnippet.DropDownItems.AddRange(menuItems);
+            btextChanged = false;
         }
 
         void snippet_click(object sender, EventArgs e)
@@ -55,6 +86,7 @@ namespace DataEditJS_Editor
             string what = sender.ToString();
             string js = snippets.getSnippet(what);
             jstext.Text = js;
+            btextChanged = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -82,6 +114,7 @@ namespace DataEditJS_Editor
                     System.Diagnostics.Debug.WriteLine("Exception: " + ex.Line + ":" + ex.Column + ": " + ex.Description + "\n" + ex.Message);
                     txtError.Visible = true;
                     txtError.Text = ex.Message;
+                    
                 }
             }
         }
@@ -125,6 +158,7 @@ namespace DataEditJS_Editor
                     tw.Write(s);
                     tw.Flush();
                 }
+                savedFileName = dlg.FileName;
             }
         }
 
@@ -144,6 +178,7 @@ namespace DataEditJS_Editor
                     string s = tr.ReadToEnd();
                     jstext.Text = s;
                 }
+                savedFileName = dlg.FileName;
             }
         }
 
@@ -170,6 +205,65 @@ namespace DataEditJS_Editor
                     tw.Write(s);
                     tw.Flush();
                 }
+                savedFileName = dlg.FileName;
+            }
+
+        }
+
+        private void Jstext_TextChanged(object sender, EventArgs e)
+        {
+            btextChanged = true;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (btextChanged)
+            {
+                DialogResult msgBoxResult = MessageBox.Show("Text changed. Do you want to save?", "Closing", MessageBoxButtons.YesNoCancel);
+                switch (msgBoxResult)
+                {
+                    case DialogResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                    case DialogResult.Yes:
+                        saveFile();
+                        break;
+                    case DialogResult.No:
+                        break;
+
+                }
+            }
+        }
+
+        private void MnuFileNew_Click(object sender, EventArgs e)
+        {
+            if(btextChanged)
+            {
+                saveFile();
+            }
+            jstext.Text = "";
+            savedFileName = "";
+            btextChanged = false;
+        }
+
+        void saveFile()
+        {
+            saveFile(savedFileName);
+        }
+        void saveFile(string fileName)
+        {
+            if (System.IO.File.Exists(fileName))
+            {
+                string s = jstext.Text;
+                using (TextWriter tw = new StreamWriter(fileName))
+                {
+                    tw.Write(s);
+                    tw.Flush();
+                }
+            }
+            else
+            {
+                SaveAsToolStripMenuItem_Click(this, new EventArgs());
             }
 
         }
